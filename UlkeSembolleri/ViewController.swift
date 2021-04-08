@@ -9,14 +9,15 @@ import UIKit
 
 class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
     
-    
+    var landMarkNames = [String]()
+    var landMarkImages = [UIImage]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return landMarkNames.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "k2"
+        cell.textLabel?.text = landMarkNames[indexPath.row]
         return cell
     }
     
@@ -28,7 +29,21 @@ class ViewController: UIViewController,UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        
+       
+        landMarkNames.append("Colosseum")
+        landMarkNames.append("Great Wall")
+        landMarkNames.append("Stonehenge")
+        landMarkNames.append("Tac Mahal")
+        landMarkNames.append("Kremlin")
+        
+        
+        landMarkImages.append(UIImage(named: "colosseum")!)
+        landMarkImages.append(UIImage(named: "greatwall")!)
+        landMarkImages.append(UIImage(named: "kremlin")!)
+        landMarkImages.append(UIImage(named: "stonehenge")!)
+        landMarkImages.append(UIImage(named: "tacmahal")!)
     }
 
 
